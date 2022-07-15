@@ -8,22 +8,36 @@ import Singin from "./Singin";
 import Singup from "./Singup";
 import Home from "./Home";
 import Note from "./Note";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function App() {
   return (
     <>
       <BrowserRouter>
-        <UserDataProvider.Provider value="">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/singup" element={<Singup />} />
-              <Route path="/singin" element={<Singin />} />
-            
-              <Route path="/note" element={<Note />} />
-            </Routes>  
-          </UserDataProvider.Provider>
+        <UserDataProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/singup" element={<Singup />} />
+            <Route path="/singin" element={<Singin />} />
+            <Route
+              path="/home"
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/note"
+              element={
+                <ProtectedRoute>
+                  <Note />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </UserDataProvider>
       </BrowserRouter>
-     
     </>
   );
 }
