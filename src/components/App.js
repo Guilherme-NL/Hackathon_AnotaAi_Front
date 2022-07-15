@@ -7,6 +7,7 @@ import Singin from "./Singin";
 import Singup from "./Singup";
 import Home from "./Home";
 import Note from "./Note";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function App() {
   return (
@@ -17,8 +18,22 @@ export default function App() {
             <Route path="/" element={<Wellcome />} />
             <Route path="/singup" element={<Singup />} />
             <Route path="/singin" element={<Singin />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/note" element={<Note />} />
+            <Route
+              path="/home"
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/note"
+              element={
+                <ProtectedRoute>
+                  <Note />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </UserDataProvider>
       </BrowserRouter>
