@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 import bgHome from "../assets/images/bgHome.png"
 import Logo from "../assets/images/Logo.png"
@@ -10,8 +11,12 @@ export default function Home(){
                <div></div>
                 <img src={Logo} />
                 <div className="actions">
-                    <div>Entrar</div>
-                    <div>Criar Conta</div>
+                    <Link to="/signin" style={{ textDecoration: "none", color: "black" }}>
+                     <div>Entrar</div>
+                    </Link>
+                    <Link to="/signup" style={{ textDecoration: "none", color:"black" }}>
+                        <div>Criar Conta</div>
+                    </Link>
                 </div>
         </Header>   
         <Container>
@@ -19,17 +24,17 @@ export default function Home(){
                <ul>
                     <li>Moderno</li>
                     <li>Eficiente</li>
-                    Minimalista
+                    <li>Minimalista</li>
                 </ul> 
                 <p>
                 Anota Ai é a plataforma perfeita para você que necessita fazer anotações onde e quando quiser
                 </p> 
-                <button>Comece Agora</button>  
+                <Link to="/signup">
+                 <button>Comece Agora</button> 
+                </Link> 
                </div>
                 <img src={Mackbook}/>  
         </Container>
-            
-
         </>
     )
 }
@@ -48,6 +53,7 @@ const Container = styled.div`
         margin: 30px 0px;
         width: 230px;
         text-align: justify;
+        line-height: 25px;
     }
 
     ul{
@@ -56,6 +62,7 @@ const Container = styled.div`
 
     ul li{
         margin-right: 20px;
+        font-weight: bold;
     }
 
     img{
@@ -71,8 +78,10 @@ const Container = styled.div`
         border-radius: 5px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
-`
 
+   
+
+`
 
 
 const Header = styled.div`
