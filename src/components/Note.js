@@ -1,12 +1,13 @@
 import styled from "styled-components"
 import { useState } from "react"
 import MDEditor from "@uiw/react-md-editor"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import Logo from "../assets/images/Logo.png"
 
 
 export default function Note() {
   const [note, setNote] = useState("")
+  const {id} = useParams()
 
   return (
    <>
