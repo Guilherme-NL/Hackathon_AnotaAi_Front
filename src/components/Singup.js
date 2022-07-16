@@ -8,11 +8,13 @@ import logo from "../image/logo.png";
 export default function Singup() {
   return (
     <Container>
-      <img src={logo} alt="logo" />
+       <Link to="/">
+    <img src={logo} alt="logo" /> 
+    </Link>
       <p>Cadastre-se no Anota Ai</p>
       <p>Será um prazer ter você conosco</p>
       <SingupForm />
-      <Link to="/singin" style={{ textDecoration: "none" }}>
+      <Link to="/signin" style={{ textDecoration: "none" }}>
         <p>Já tem uma conta? Entre agora!</p>
       </Link>
     </Container>

@@ -8,10 +8,12 @@ import logo from "../image/logo.png";
 export default function Singin() {
   return (
     <Container>
-      <img src={logo} alt="logo" />
+    <Link to="/">
+    <img src={logo} alt="logo" /> 
+    </Link>
       <p>Seja bem vindo</p>
       <SinginForm />
-      <Link to="/singup" style={{ textDecoration: "none" }}>
+      <Link to="/signup" style={{ textDecoration: "none" }}>
         <p>Primeira vez? Cadastre-se!</p>
       </Link>
     </Container>

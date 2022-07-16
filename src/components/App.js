@@ -17,8 +17,8 @@ export default function App() {
         <UserDataProvider>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/singup" element={<Singup />} />
-            <Route path="/singin" element={<Singin />} />
+            <Route path="/signup" element={<Singup />} />
+            <Route path="/signin" element={<Singin />} />
             <Route
               path="/home"
               element={
@@ -30,9 +30,9 @@ export default function App() {
             <Route
               path="/note"
               element={
-                <ProtectedRoute>
+             
                   <Note />
-                </ProtectedRoute>
+                
               }
             />
           </Routes>
