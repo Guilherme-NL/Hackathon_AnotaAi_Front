@@ -2,11 +2,14 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import {useUserData, saveUserDataInLocalStorage} from "../contexts/UserDataContext";
+import {
+  useUserData,
+  saveUserDataInLocalStorage,
+} from "../contexts/UserDataContext";
 import dotenv from "dotenv";
 dotenv.config();
 
-export default function SinginForm() {
+export default function SigninForm() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = React.useState(false);
   const [email, setEmail] = React.useState("");
@@ -28,7 +31,7 @@ export default function SinginForm() {
         saveUserDataInLocalStorage(res.data);
         console.log(res.data);
         setIsLoading(false);
-        navigate("/products");
+        navigate("/notes");
       })
       .catch((err) => {
         console.log(err);

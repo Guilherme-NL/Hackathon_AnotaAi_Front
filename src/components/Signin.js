@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import SinginForm from "./SinginForm";
+import SigninForm from "./SigninForm";
 import back from "../image/Back.png";
 import logo from "../image/logo.png";
 
-export default function Singin() {
+export default function Signin() {
   return (
     <Container>
       <img src={logo} alt="logo" />
       <p>Seja bem vindo</p>
-      <SinginForm />
-      <Link to="/singup" style={{ textDecoration: "none" }}>
+      <SigninForm />
+      <Link to="/signup" style={{ textDecoration: "none" }}>
         <p>Primeira vez? Cadastre-se!</p>
       </Link>
     </Container>

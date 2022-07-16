@@ -5,7 +5,7 @@ import styled from "styled-components";
 import dotenv from "dotenv";
 dotenv.config();
 
-export default function SingupForm() {
+export default function SignupForm() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -25,13 +25,13 @@ export default function SingupForm() {
       axios
         .post(url, body)
         .then(() => {
-          navigate("/");
+          navigate("/signin");
         })
         .catch((err) => {
           console.log(err);
           alert("Erro ao cadastrar o usuário");
           setIsLoading(false);
-          navigate("/singup");
+          navigate("/signup");
         });
     } else {
       alert("As senhas devem ser iguais!!");
@@ -88,7 +88,10 @@ const Container = styled.form`
   margin-top: 30px;
 
   input {
-    width: 100%;
+    @media (max-width: 450px) {
+      width: 100%;
+    }
+    width: 350px;
     height: 58px;
     background-color: #f5f5f5;
     border: 1px solid #121212;
@@ -103,10 +106,13 @@ const Container = styled.form`
   }
 
   button {
+    @media (max-width: 450px) {
+      width: 100%;
+    }
+    width: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
     height: 46px;
     background-color: #444444;
     border-radius: 5px;

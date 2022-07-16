@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import {UserDataProvider}  from "../contexts/UserDataContext.js";
+import { UserDataProvider } from "../contexts/UserDataContext.js";
 import "../styles/reset.css";
 import "../styles/style.css";
 
-import Singin from "./Singin";
-import Singup from "./Singup";
+import Signin from "./Signin";
+import Signup from "./Signup";
 import Home from "./Home";
-import Note from "./Note";
+import Notes from "./Notes";
 import ProtectedRoute from "./ProtectedRoute";
 
 export default function App() {
@@ -17,8 +17,8 @@ export default function App() {
         <UserDataProvider>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/singup" element={<Singup />} />
-            <Route path="/singin" element={<Singin />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/signin" element={<Signin />} />
             <Route
               path="/home"
               element={
@@ -28,10 +28,10 @@ export default function App() {
               }
             />
             <Route
-              path="/note"
+              path="/notes"
               element={
                 <ProtectedRoute>
-                  <Note />
+                  <Notes />
                 </ProtectedRoute>
               }
             />

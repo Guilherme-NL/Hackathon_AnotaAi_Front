@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import SingupForm from "./SingupForm";
+import SignupForm from "./SignupForm";
 import back from "../image/Back.png";
 import logo from "../image/logo.png";
 
-export default function Singup() {
+export default function Signup() {
   return (
     <Container>
       <img src={logo} alt="logo" />
       <p>Cadastre-se no Anota Ai</p>
       <p>Será um prazer ter você conosco</p>
-      <SingupForm />
-      <Link to="/singin" style={{ textDecoration: "none" }}>
+      <SignupForm />
+      <Link to="/signin" style={{ textDecoration: "none" }}>
         <p>Já tem uma conta? Entre agora!</p>
       </Link>
     </Container>
