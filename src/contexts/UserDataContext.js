@@ -8,7 +8,7 @@ function UserDataProvider(props) {
   const [userData, setUserData] = React.useState(
     () => JSON.parse(window.localStorage.getItem(USER_DATA)) || null
   );
-
+   
   return (
     <UserDataContext.Provider value={[userData, setUserData]} {...props} />
   );

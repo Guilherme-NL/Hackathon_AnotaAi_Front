@@ -10,20 +10,22 @@ import logo from "../image/logo.png";
 dotenv.config();
 
 export default function TopBar() {
-  const [{ name, token }, setUserData] = useUserData();
+  //OBS: tive que comentar esses trechos de código por enquanto, devido ao seu funcionamento necessitar do sistema de cadastro e login
+  //const [{name, token}, setUserData] = useUserData();
+  const name = "Samer"
   const navigate = useNavigate();
   function logout() {
-    const auth = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
+    // const auth = {
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // };
     const requisition = axios.delete(
       "https://back-anota-ai.herokuapp.com/sessions",
-      auth
+      //auth
     );
     requisition.then((response) => {
-      setUserData(null);
+      //setUserData(null);
       deleteUserDataInLocalStorage();
       navigate("/signin");
     });
@@ -33,13 +35,16 @@ export default function TopBar() {
     });
   }
   return (
-    <Container>
+      <>
+         {name.length !== 0 ? <Container>
       <img src={logo} alt="logo"></img>
       <LogOut onClick={logout}>
         <h1>Olá, {name}</h1>
         <ion-icon name="log-out-outline"></ion-icon>
       </LogOut>
-    </Container>
+    </Container> : "Carregando..."} 
+      
+      </>
   );
 }
 const Container = styled.div`

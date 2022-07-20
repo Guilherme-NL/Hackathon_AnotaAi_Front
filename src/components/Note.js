@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { useState } from "react"
 import MDEditor from "@uiw/react-md-editor"
 import { Link, useParams } from "react-router-dom"
-import Logo from "../assets/images/Logo.png"
+import TopBar from "./TopBar"
 
 
 export default function Note() {
@@ -12,25 +12,20 @@ export default function Note() {
   return (
    <>
     <Container>
-      <Header>
-        <img src={Logo} />
-        <div className="actions">
-            <p>Olá, fulano</p>
-            <p>Logout Icon</p>
-        </div>
-      </Header>
-      
+       <TopBar />  
       <div className="main">
       <div className="sidebar">
         <div>
             <Link to="/notes">
               <li className="all">Todas as anotações</li>
             </Link>
-        </div>  
         <ul className="notes">
-          <li>Minha primeira nota</li>
+       
+           <li>Minha primeira nota</li>
           <li>Minha segunda nota</li>
         </ul>
+        </div>  
+    
         <div>
           <li>Preciso de ajuda</li>
         </div>
@@ -38,7 +33,7 @@ export default function Note() {
       <section >
         <h2 className="noteTitle">Minha primeira nota</h2>
         
-      <MDEditor className="note" value={note} onChange={setNote} height={400} />
+      <MDEditor className="note" value={note} onChange={setNote} height={330} />
       </section>
       
       </div>
@@ -47,34 +42,14 @@ export default function Note() {
   )
 }
 
-const Header = styled.div`
-background-color: #646464;
-width: 100%;
-height:100px;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 20px;
 
-.actions{
-  display:flex;
-  color:white;
-
-  p{
-    margin: 0px 15px;
-  }
-}
-
-
-`
 const Container = styled.div`
 display: flex;
 flex-direction:column;
 background-color: #E3E3E3;
 
 .sidebar{
-    height:85vh;
+    height: 100vh;
     width:200px;
     color:white;
     background-color:#A6A6A6;
@@ -82,12 +57,19 @@ background-color: #E3E3E3;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding:20px;
+    padding-top:120px;
 
-  .all{
+  .all:focus{
     box-shadow: 2px 3px 5px black;
-    color:white;
-    padding:5px;
+    border-radius: 5px;
+  }
+
+  .notes{
+    margin-top:20px;
+  }
+
+  .notes li:focus{
+    box-shadow: 2px 3px 5px black;
     border-radius: 5px;
   }
 
@@ -96,11 +78,6 @@ background-color: #E3E3E3;
       width:50%;
     }
 
-    .notes{
-      height:100%;
-      padding-top:40px;
-      width: 100%;
-    }
     li{
       list-style-type: none;
       cursor: pointer;
@@ -111,7 +88,6 @@ background-color: #E3E3E3;
       color:black;
 
       &:hover{
-        
         background-color: #D9D9D9;
         width: 100%;
       }
@@ -121,14 +97,12 @@ background-color: #E3E3E3;
 .main{
   display:flex;
   justify-content:space-between;
-  
+  height: 100vh;
+
   section{
-    margin-top: 20px;
+    margin-top: 120px;
     margin-right: 20px;
     font-size: 48px;
-    
-
-    
   }
 
   .note{

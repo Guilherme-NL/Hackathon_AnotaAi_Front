@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import React from "react";
 import { UserDataProvider } from "../contexts/UserDataContext.js";
 import "../styles/reset.css";
@@ -12,6 +13,7 @@ import Note from "./Note"
 import ProtectedRoute from "./ProtectedRoute";
 
 export default function App() {
+
   return (
     <>
       <BrowserRouter>
@@ -20,9 +22,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/signin" element={<Signin />} />
-            <Route path="/notes" element={<ProtectedRoute> <Notes /> </ProtectedRoute>}/>
-            <Route path="/note/:id" element={<Note />} />
-            
+            <Route path="/notes" element={<Notes />}/>
+            <Route path="/notes/:id" element={<Note />} /> 
           </Routes>
         </UserDataProvider>
       </BrowserRouter>
